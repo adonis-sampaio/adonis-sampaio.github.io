@@ -76,42 +76,40 @@ h2 {
 
 /* Projects Container */
 .projects-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  justify-content: center;
   gap: 2rem;
   width: 100%;
   margin-top: 2rem;
   padding: 2rem 0;
+  flex-wrap: wrap;
 }
 
 /* Project Box Styling */
 .project-box {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
+  background: rgba(50, 50, 50, 0.6);
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  width: calc(33.333% - 1.5rem);
+  min-width: 250px;
 }
 
 .project-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
-  border-color: rgb(77, 84, 86);
+  background: rgba(50, 50, 50, 0.75);
 }
 
 .project-box h3 {
   font-size: 1.5rem;
   font-weight: 400;
-  color: #333;
+  color: #fff;
   margin: 0 0 1rem 0;
-  border-bottom: 2px solid rgb(77, 84, 86);
   padding-bottom: 0.5rem;
 }
 
 .project-box p {
   font-size: 1rem;
-  color: #555;
+  color: #ddd;
   margin: 1rem 0;
   line-height: 1.6;
 }
@@ -128,7 +126,6 @@ h2 {
   flex: 1;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 400;
   text-decoration: none;
@@ -140,33 +137,44 @@ h2 {
 }
 
 .btn-demo {
-  background: linear-gradient(135deg, rgb(77, 84, 86) 0%, rgb(60, 65, 67) 100%);
+  background: rgba(77, 84, 86, 0.8);
   color: white;
-  border: 2px solid rgb(77, 84, 86);
 }
 
 .btn-demo:hover {
-  background: linear-gradient(135deg, rgb(60, 65, 67) 0%, rgb(45, 50, 52) 100%);
+  background: rgba(77, 84, 86, 1);
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(77, 84, 86, 0.3);
 }
 
 .btn-github {
-  background: white;
-  color: rgb(77, 84, 86);
-  border: 2px solid rgb(77, 84, 86);
+  background: rgba(100, 100, 100, 0.6);
+  color: white;
 }
 
 .btn-github:hover {
-  background: rgb(77, 84, 86);
-  color: white;
+  background: rgba(100, 100, 100, 0.9);
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(77, 84, 86, 0.3);
 }
 
 @media(min-width: 1200px) {
   h1 {
     font-size: 3.5rem;
+  }
+}
+
+@media(max-width: 1100px) {
+  .project-box {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    gap: 1.5rem;
+    padding: 2rem 0;
   }
 }
 
@@ -179,9 +187,8 @@ h2 {
     font-size: 3rem;
   }
 
-  .projects-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .project-box {
+    width: 100%;
   }
 
   .project-links {
