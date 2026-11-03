@@ -60,6 +60,10 @@ h1, h2 {
   margin: 0.4rem;
 }
 
+.section-projects {
+  color: light-grey
+}
+
 h1 {
   font-size: 3.5rem;
 }
